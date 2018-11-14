@@ -1,7 +1,7 @@
 (ns hello-webpack.core
   (:require [goog.dom :as gdom]
             [reagent.core :as r]
-            [luggage :refer (DropboxBackend Luggage)]))
+            [luggage]))
 
 (set! *warn-on-infer* true)
 (enable-console-print!)
@@ -11,8 +11,8 @@
 
 (def ^js/Luggage.collection recipes
   (-> api-key
-      (DropboxBackend.)
-      (Luggage.)
+      (luggage/DropboxBackend.)
+      (luggage/Luggage.)
       (.collection "recipes")))
 
 (defn fetch-recipes []
