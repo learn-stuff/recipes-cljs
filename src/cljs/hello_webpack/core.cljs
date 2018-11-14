@@ -18,7 +18,7 @@
 (defn fetch-recipes []
   (-> recipes
       (.read)
-      (.then #(reset! recipes-state %))))
+      ^js/Promise (.then #(reset! recipes-state %))))
 
 (defn simple-component []
   [:ul
